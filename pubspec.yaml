@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  package_info_plus: ^1.4.2 #https://pub.dev/packages/package_info_plus
 
 dev_dependencies:
   flutter_test:

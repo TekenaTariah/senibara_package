@@ -10,7 +10,7 @@ Usage of this package outside authority is at user's discretion.
 ## What is new
 #### Version `0.0.3` incorporates the following solutions:
 - **Data:** *alphabet*
-- **Widgets:** *sbWelcomeMessage*
+- **Widgets:** *sbLicensePage*
 - **Utilities:** *toCamelCase*
 
 ## Getting started

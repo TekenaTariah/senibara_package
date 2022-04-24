@@ -7,4 +7,4 @@
 # 0.0.3
 * Utilities Added: toCamelCase
 * Data Added: alphabet
-* Widgets Removed: sbWelcomeMessage
+* Widgets Removed: sbLicensePage
