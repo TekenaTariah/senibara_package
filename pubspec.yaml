@@ -1,0 +1,33 @@
+name: senibara
+description: A Senibara package project. This package holds a series of custom data, widgets, and utilities for reuse by employees of Senibara.
+version: 0.0.3
+homepage: https://github.com/TekenaTariah/senibara_package
+
+environment:
+  sdk: ">=2.16.2 <3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^1.0.0
+
+flutter:
+
+  # To add assets to your package, add an assets section, like this:
+  # assets:
+  #   - images/a_dot_burr.jpeg
+  #   - images/a_dot_ham.jpeg
+
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  # For details regarding fonts in packages, see
+  # https://flutter.dev/custom-fonts/#from-packages
