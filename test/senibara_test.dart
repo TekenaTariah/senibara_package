@@ -1,7 +1,12 @@
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('senibara ...', (tester) async {
-    
+  String? companyName;
+  setUp(() {
+    companyName = 'Senibara';
+  });
+  testWidgets('senibara ...', (tester) async {});
+  test('Name Checker', () {
+    expect(companyName, 'Senibara');
   });
 }

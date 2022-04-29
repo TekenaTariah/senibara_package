@@ -1,25 +1,26 @@
-// ignore_for_file: camel_case_types
-
 import 'dart:collection';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:senibara/senibara.dart';
+import 'package:senibara/src/data/app_data.dart';
 
-class sbLicensesPage extends StatefulWidget {
-  const sbLicensesPage({Key? key}) : super(key: key);
+class SBLicensesPage extends StatefulWidget {
+  final Widget appLogo;
+  const SBLicensesPage({Key? key, required this.appLogo}) : super(key: key);
 
   @override
-  State<sbLicensesPage> createState() => _sbLicensesPageState();
+  State<SBLicensesPage> createState() => _SBLicensesPageState();
 }
 
-class _sbLicensesPageState extends State<sbLicensesPage> {
+class _SBLicensesPageState extends State<SBLicensesPage> {
   String appName = '';
   String appVersion = '';
-  String appLogo = 'assets/logos/colours_logo.png';
   bool fetchingLicenses = false;
 
   final SplayTreeMap<String, List<String>> packageLicenses = SplayTreeMap();
 
+// fertches grouped licenses
   void fetchLicenses() async {
     packageLicenses.clear();
     fetchingLicenses = true;
@@ -56,35 +57,6 @@ class _sbLicensesPageState extends State<sbLicensesPage> {
     fetchAppDetails();
   }
 
-  final alphabets = [
-    'a',
-    'b',
-    'c',
-    'd',
-    'e',
-    'f',
-    'g',
-    'h',
-    'i',
-    'j',
-    'k',
-    'l',
-    'm',
-    'n',
-    'o',
-    'p',
-    'q',
-    'r',
-    's',
-    't',
-    'u',
-    'v',
-    'w',
-    'x',
-    'y',
-    'z',
-  ];
-
   String toCamelCase(String? text) {
     if (text == null) return '';
 
@@ -93,7 +65,7 @@ class _sbLicensesPageState extends State<sbLicensesPage> {
     var result = '';
     var chars = text.split('');
     chars.asMap().forEach((index, char) {
-      if (index == 0 || !alphabets.contains(chars[index - 1])) {
+      if (index == 0 || !SBAppData.alphabets.contains(chars[index - 1])) {
         result += char.toUpperCase();
       } else {
         result += char;
@@ -107,9 +79,9 @@ class _sbLicensesPageState extends State<sbLicensesPage> {
   Widget build(BuildContext context) {
     fetchAppDetails();
     // Styles
-    const appTitleTextStyle = TextStyle(fontSize: 25, color: Colors.black);
-    final appVersionTextStyle = TextStyle(color: Colors.grey.shade900);
-    const legaleseTextStyle = TextStyle(color: Colors.black);
+    const appTitleTextStyle = TextStyle(fontSize: 25);
+    final appVersionTextStyle = TextStyle();
+    const legaleseTextStyle = TextStyle();
     const licenseTitleTextStyle = TextStyle(fontSize: 16);
     const licenseSubtitleTextStyle = TextStyle(
       fontSize: 14,
@@ -125,7 +97,10 @@ class _sbLicensesPageState extends State<sbLicensesPage> {
           children: [
             const SizedBox(height: 30),
             Text(appName, style: appTitleTextStyle),
-            Image.asset(appLogo, height: 60),
+            SizedBox(
+              child: widget.appLogo,
+              height: SBAppData.defaultLogoHeight,
+            ),
             Text(appVersion, style: appVersionTextStyle),
             Container(
                 margin: const EdgeInsets.symmetric(vertical: 32.0),
@@ -145,7 +120,8 @@ class _sbLicensesPageState extends State<sbLicensesPage> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      sbLicenseDescriptionPage(
+                                      SBLicenseDescriptionPage(
+                                          package: package,
                                           descriptions:
                                               packageLicenses[package])));
                         },
@@ -171,19 +147,17 @@ class _sbLicensesPageState extends State<sbLicensesPage> {
   }
 }
 
-abstract class Delete {
-  static void now() {}
-}
-
-class sbLicenseDescriptionPage extends StatelessWidget {
+class SBLicenseDescriptionPage extends StatelessWidget {
+  final String package;
   final List<String>? descriptions;
-  const sbLicenseDescriptionPage({Key? key, required this.descriptions})
+  const SBLicenseDescriptionPage(
+      {Key? key, required this.package, required this.descriptions})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(toolbarHeight: 0),
+        appBar: AppBar(title: Text(package)),
         body: Padding(
           padding: const EdgeInsets.all(20.0),
           child: ListView.separated(
