@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:senibara/src/data/app_data.dart';
-
-enum SBLogoOrientation { single, horizontal, vertical }
+import 'package:senibara/src/data/enums.dart';
 
 class SBLogo extends StatelessWidget {
   final SBLogoOrientation? orientation;
@@ -18,7 +17,7 @@ class SBLogo extends StatelessWidget {
               ? 'assets/logos/logo-vt.png'
               : 'assets/logos/logo-st.png',
       package: 'senibara',
-      height: height ?? SBAppData.defaultLogoHeight,
+      height: height ?? SBData.defaultLogoHeight,
     );
   }
 }

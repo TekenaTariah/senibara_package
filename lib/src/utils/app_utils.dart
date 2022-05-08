@@ -1,24 +1,37 @@
-import 'package:package_info_plus/package_info_plus.dart';
+import 'package:senibara/src/data/app_data.dart';
 
-class SBAppUtils {
-  static Future<SBPackageInfo> getPackageInfo() async {
-    var info = await PackageInfo.fromPlatform();
-    return SBPackageInfo(info);
+/// Offers methods that can be run on strings
+class SBUtils {
+  SBUtils._();
+
+  /// [toCamelCase] takes a string and converts it to camel case.
+  /// Non String characters are taking as a mark for 'camelling'
+  /// The method makes use of data
+  /// ```dart
+  /// var inputText='senibara';
+  /// print(SBStringUtils.toCamelCase(inputText));
+  /// ```
+  static String toCamelCase(String? text) {
+    if (text == null) return '';
+
+    text = text.toLowerCase();
+
+    var result = '';
+    var chars = text.split('');
+    chars.asMap().forEach((index, char) {
+      if (index == 0 || !SBData.alphabets.contains(chars[index - 1])) {
+        result += char.toUpperCase();
+      } else {
+        result += char;
+      }
+    });
+
+    return result;
   }
-}
 
-class SBPackageInfo {
-  late String appName;
-  late String packageName;
-  late String version;
-  late String buildNumber;
-  late String buildSignature;
-
-  SBPackageInfo(PackageInfo info) {
-    appName = info.appName;
-    packageName = info.packageName;
-    version = info.version;
-    buildNumber = info.buildNumber;
-    buildSignature = info.buildSignature;
+  static String toTitleCase(String? text) {
+    if (text == null) return '';
+    if (text.length == 1) return text.toUpperCase();
+    return text.substring(0, 1).toUpperCase() + text.substring(1).toLowerCase();
   }
 }

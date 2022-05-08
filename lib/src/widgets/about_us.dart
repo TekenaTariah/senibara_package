@@ -7,7 +7,7 @@ class SBAboutUs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text(SBAppData.companyFullName)),
+      body: Center(child: Text(SBData.companyFullName)),
     );
   }
 }

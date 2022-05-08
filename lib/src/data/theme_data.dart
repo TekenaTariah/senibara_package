@@ -1,6 +1,7 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:senibara/senibara.dart';
 
@@ -9,6 +10,15 @@ const sbSwatch = MaterialColor(0xff1a6adb, swatch);
 const sbDesignOrange = Color(0xffff7a00);
 const sbDesignRed = Color(0xff7a0000);
 const sbDesignBlue = Color(0xff00007a);
+
+///32 Bit Int value for sbDesignOrange
+const sbDesignOrangeInt = 4294932992;
+
+///32 Bit Int value for sbDesignRed
+const sbDesignRedInt = 4286185472;
+
+///32 Bit Int value for sbDesignBlue
+const sbDesignBlueInt = 4278190202;
 
 const Map<int, Color> swatch = {
   900: Color.fromRGBO(26, 106, 219, 1),
@@ -24,16 +34,18 @@ const Map<int, Color> swatch = {
 };
 
 final SBThemeData = ThemeData(
-  appBarTheme: const AppBarTheme(toolbarHeight: SBAppData.toolbarHeight,),
-  floatingActionButtonTheme:
-      const FloatingActionButtonThemeData(backgroundColor: Colors.grey),
-  listTileTheme:
-      const ListTileThemeData(dense: true, contentPadding: EdgeInsets.zero),
+  appBarTheme: const AppBarTheme(
+      toolbarHeight: SBData.toolbarHeight,
+      color: sbBlue,
+      systemOverlayStyle: SystemUiOverlayStyle(
+          // statusBarColor: null,
+          )),
   primarySwatch: sbSwatch,
-  textTheme: GoogleFonts.robotoSlabTextTheme(Typography.blackCupertino).apply(
+  textTheme: GoogleFonts.robotoTextTheme(Typography.blackCupertino).apply(
     bodyColor: Colors.grey.shade900,
     displayColor: Colors.grey.shade900,
   ),
+  fontFamily: 'Roboto_Slab',
   progressIndicatorTheme: null,
   pageTransitionsTheme: null,
   popupMenuTheme: null,
@@ -47,7 +59,7 @@ final SBThemeData = ThemeData(
   bottomAppBarColor: null,
   bottomAppBarTheme: null,
   bottomNavigationBarTheme: null,
-  bottomSheetTheme: null,
+  bottomSheetTheme: BottomSheetThemeData(),
   buttonBarTheme: null,
   canvasColor: null,
   cardColor: null,
@@ -56,12 +68,16 @@ final SBThemeData = ThemeData(
   chipTheme: null,
   dataTableTheme: null,
   dialogBackgroundColor: null,
-  dialogTheme: null,
+  dialogTheme: DialogTheme(),
   disabledColor: null,
   dividerTheme: null,
   drawerTheme: null,
   elevatedButtonTheme: null,
   errorColor: null,
+  floatingActionButtonTheme: FloatingActionButtonThemeData(
+    backgroundColor: Colors.grey.shade300,
+    enableFeedback: true,
+  ),
   focusColor: null,
   highlightColor: null,
   hintColor: null,
@@ -69,6 +85,10 @@ final SBThemeData = ThemeData(
   iconTheme: null,
   indicatorColor: null,
   inputDecorationTheme: null,
+  listTileTheme: const ListTileThemeData(
+    dense: true,
+    contentPadding: EdgeInsets.zero,
+  ),
   materialTapTargetSize: null,
   navigationBarTheme: null,
   navigationRailTheme: null,
@@ -96,13 +116,17 @@ final SBThemeData = ThemeData(
   timePickerTheme: null,
   toggleButtonsTheme: null,
   toggleableActiveColor: null,
-  tooltipTheme: null,
+  tooltipTheme: const TooltipThemeData(preferBelow: false),
   typography: null,
   unselectedWidgetColor: null,
   useMaterial3: null,
-  visualDensity: null,
+  visualDensity: VisualDensity.comfortable,
 );
-
+final SBDesignThemeData = SBThemeData.copyWith(
+    textTheme: GoogleFonts.robotoSlabTextTheme(Typography.blackCupertino).apply(
+  bodyColor: Colors.grey.shade900,
+  displayColor: Colors.grey.shade900,
+));
 //todo: Fully customise SB Theme Data
 // todo: for ios text theme, include
 // '''<key>com.apple.security.network.client</key>
