@@ -31,14 +31,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var drawerContents = [
-    SBDrawerContent(title: 'Business', routeName: '/business'),
-    SBDrawerContent(title: 'Education', routeName: '/education'),
-    SBDrawerContent(title: 'HouseHold', routeName: '/household'),
-    SBDrawerContent(title: 'Colours', routeName: '/colours'),
-    SBDrawerContent(title: 'Community', routeName: '/community'),
-    SBDrawerContent(title: 'Support', routeName: '/support'),
-  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,7 +49,6 @@ class _MyHomePageState extends State<MyHomePage> {
         ]),
         actions: const [CircleAvatar(radius: 14)],
       ),
-      drawer: SBDrawer(contents: drawerContents),
       body: const SBLicensesPage(),
       floatingActionButton:
           FloatingActionButton(child: SBLogo(height: 40), onPressed: () {}),

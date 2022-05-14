@@ -35,7 +35,7 @@ class _SBFooterControlsState extends State<SBFooterControls> {
       alignment: Alignment.topRight,
       children: [
         Container(
-          padding: const EdgeInsets.only(top: 8),
+          padding: const EdgeInsets.only(top: 8,right: 2),
           decoration: BoxDecoration(
               border: Border(top: BorderSide(color: Colors.grey.shade300))),
           child: Row(

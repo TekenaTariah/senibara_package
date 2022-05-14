@@ -57,9 +57,11 @@ class _SBDrawerState extends State<SBDrawer> {
 }
 
 class SBDrawerContent {
+  final String leading;
   final String title;
   final String routeName;
-  SBDrawerContent({required this.title, required this.routeName});
+  SBDrawerContent(
+      {required this.leading, required this.title, required this.routeName});
 }
 
 class SBDrawerContents extends StatelessWidget {
@@ -72,6 +74,12 @@ class SBDrawerContents extends StatelessWidget {
         shrinkWrap: true,
         itemBuilder: (ctx, index) {
           return ListTile(
+            leading: Opacity(
+                opacity: 0.7,
+                child: Image.asset(
+                  contents[index].leading,
+                  height: 24,
+                )),
             title: Text(contents[index].title),
             trailing: IconButton(
                 onPressed: () {}, icon: const Icon(Icons.arrow_forward)),
@@ -99,19 +107,13 @@ class SBDrawerHeader extends StatelessWidget {
           IconButton(
               onPressed: () => Navigator.pop(context),
               icon: const Icon(Icons.close, size: closeButtonSize)),
-          Row(children: [
-            Image.asset(
-              sbAppLogoPath,
+          GestureDetector(
+            onTap: () => Navigator.pop(context),
+            child: Image.asset(
+              'assets/logos/logo.png',
               height: SBData.drawerLogoHeight,
-              width: SBData.drawerLogoHeight,
             ),
-            const SizedBox(width: 10),
-            Text(SBUtils.toCamelCase(sbPackageInfo.appName),
-                style: TextStyle(
-                    color: Colors.grey.shade800,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500)),
-          ]),
+          ),
           const SizedBox(width: closeButtonSize),
         ],
       ),
@@ -126,22 +128,16 @@ class SBDrawerFooter extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        const Divider(),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          child: Image.asset(
-            'assets/images/gradient_line.png',
-            package: 'senibara',
-            height: 2,
-            fit: BoxFit.cover,
-            width: double.infinity,
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.symmetric(vertical: 4.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('Created by'),
+              const Text(
+                'Created by',
+                style: TextStyle(fontSize: 12),
+              ),
               GestureDetector(
                 onTap: () {
                   showDialog(
@@ -167,7 +163,7 @@ class SBDrawerFooter extends StatelessWidget {
                           ));
                 },
                 child: SBLogo(
-                    orientation: SBLogoOrientation.horizontal, height: 25),
+                    orientation: SBLogoOrientation.horizontal, height: 20),
               ),
             ],
           ),

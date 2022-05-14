@@ -34,12 +34,12 @@ const Map<int, Color> swatch = {
 };
 
 final SBThemeData = ThemeData(
-  appBarTheme: const AppBarTheme(
+  appBarTheme: AppBarTheme(
       toolbarHeight: SBData.toolbarHeight,
-      color: sbBlue,
-      systemOverlayStyle: SystemUiOverlayStyle(
-          // statusBarColor: null,
-          )),
+      centerTitle: true,
+      backgroundColor: Colors.grey.shade100,
+      iconTheme: const IconThemeData(color: Colors.black),
+      systemOverlayStyle: const SystemUiOverlayStyle(statusBarColor: sbBlue)),
   primarySwatch: sbSwatch,
   textTheme: GoogleFonts.robotoTextTheme(Typography.blackCupertino).apply(
     bodyColor: Colors.grey.shade900,

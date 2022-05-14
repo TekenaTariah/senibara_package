@@ -31,15 +31,7 @@ class _SBAppBarState extends State<SBAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text(SBUtils.toCamelCase(sbPackageInfo.appName)),
-      // Wrap(
-      //   children: [
-      //     Image.asset('assets/logos/logo.png', height: 24),
-      //     const SizedBox(width: 10),
-      // ],
-      // ),
-      centerTitle: true,
-      actions: const [CircleAvatar(radius: 14)],
+      title: Image.asset('assets/logos/logo.png', height: 40),
     );
   }
 }

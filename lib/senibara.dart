@@ -7,6 +7,7 @@ export 'src/data/enums.dart';
 export 'src/widgets/app_bar.dart';
 export 'src/widgets/logos.dart';
 export 'src/widgets/drawer.dart';
+export 'src/widgets/drawer_icon.dart';
 export 'src/widgets/footer_controls.dart';
 export 'src/widgets/about_us.dart';
 export 'src/widgets/license_page.dart';
@@ -17,7 +18,8 @@ export 'src/utils/app_utils.dart';
 export 'src/utils/payment_utils.dart';
 
 // Classes
-export 'src/classes/mass.dart';
+export 'src/classes/physical_quantity/mass.dart';
+export 'src/classes/physical_quantity/volume.dart';
 
 // Imports
 import 'package:package_info_plus/package_info_plus.dart';
