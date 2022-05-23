@@ -7,21 +7,17 @@ class SBFooterControls extends StatefulWidget {
   final String pageTitle;
 
   ///The major action of the page. Used for the elevated button text
-  final String callToAction;
-
-  ///Action to be performed when callToAction is clicked
-  final VoidCallback onCallToAction;
+  final Widget callToAction;
 
   ///PopupMenu options
   final List<String> options;
-  final Function(String) optionSelected;
+  final Function(String) onOptionSelected;
   const SBFooterControls({
     Key? key,
     required this.pageTitle,
     required this.callToAction,
-    required this.onCallToAction,
     required this.options,
-    required this.optionSelected,
+    required this.onOptionSelected,
   }) : super(key: key);
 
   @override
@@ -35,7 +31,7 @@ class _SBFooterControlsState extends State<SBFooterControls> {
       alignment: Alignment.topRight,
       children: [
         Container(
-          padding: const EdgeInsets.only(top: 8,right: 2),
+          padding: const EdgeInsets.only(top: 8, right: 2),
           decoration: BoxDecoration(
               border: Border(top: BorderSide(color: Colors.grey.shade300))),
           child: Row(
@@ -46,21 +42,15 @@ class _SBFooterControlsState extends State<SBFooterControls> {
                   child: IconButton(
                     icon: Icon(
                       Icons.exit_to_app,
-                      color: Colors.grey.shade900,
+                      color: Colors.grey.shade700,
                     ),
                     onPressed: () => Navigator.maybePop(context),
                   )),
-              TextButton(
-                child: Text(
-                  widget.callToAction,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                ),
-                onPressed: widget.onCallToAction,
-              ),
+              widget.callToAction,
               PopupMenuButton<String>(
                   child:
                       const SBMoreIcon(orientation: SBOrientation.horizontal),
-                  onSelected: (value) => widget.optionSelected(value),
+                  onSelected: (value) => widget.onOptionSelected(value),
                   itemBuilder: (BuildContext context) =>
                       List.from(widget.options.map(
                         (option) => PopupMenuItem<String>(
@@ -76,7 +66,7 @@ class _SBFooterControlsState extends State<SBFooterControls> {
                 color: Colors.grey.shade300,
                 borderRadius:
                     const BorderRadius.only(bottomLeft: Radius.circular(2))),
-            padding: const EdgeInsets.symmetric(vertical:2,horizontal: 4),
+            padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 4),
             child: Text(
               widget.pageTitle,
               style: const TextStyle(fontSize: 10),

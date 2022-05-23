@@ -39,7 +39,7 @@ class _SBMoreDot extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(1),
+      margin: const EdgeInsets.all(1),
       height: parentSize / 4,
       width: parentSize / 4,
       decoration: BoxDecoration(

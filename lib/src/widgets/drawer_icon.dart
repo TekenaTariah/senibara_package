@@ -11,7 +11,7 @@ class SBDrawerIcon extends StatelessWidget {
       onTap: () => Scaffold.of(context).openDrawer(),
       child: Container(
           padding: const EdgeInsets.all(2),
-          margin: EdgeInsets.only(left: 5),
+          margin: const EdgeInsets.only(left: 5),
           // color: Colors.grey,
           width: 24,
           height: 24,

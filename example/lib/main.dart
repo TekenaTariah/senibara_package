@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: SBThemeData,
+      theme: SBThemeData.fromContext(context),
       home: const MyHomePage(title: 'Senibara Example Page'),
     );
   }
@@ -44,14 +44,14 @@ class _MyHomePageState extends State<MyHomePage> {
           const SizedBox(width: 10),
           Text(
             SBUtils.toCamelCase(sbPackageInfo.appName),
-            style: TextStyle(),
+            style: const TextStyle(),
           )
         ]),
         actions: const [CircleAvatar(radius: 14)],
       ),
       body: const SBLicensesPage(),
       floatingActionButton:
-          FloatingActionButton(child: SBLogo(height: 40), onPressed: () {}),
+          FloatingActionButton(child: const SBLogo(height: 40), onPressed: () {}),
     );
   }
 }

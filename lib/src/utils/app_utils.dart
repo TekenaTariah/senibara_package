@@ -1,4 +1,4 @@
-import 'package:senibara/src/data/app_data.dart';
+import 'package:senibara/src/data/data.dart';
 
 /// Offers methods that can be run on strings
 class SBUtils {
@@ -33,5 +33,11 @@ class SBUtils {
     if (text == null) return '';
     if (text.length == 1) return text.toUpperCase();
     return text.substring(0, 1).toUpperCase() + text.substring(1).toLowerCase();
+  }
+
+  static String removeDoubleTrailingZeros(value) {
+    // RegExp regex = RegExp(r'([.]*0)(?!.*\d)');
+    // return value.toString().replaceAll(regex, '');
+    return value.toString();
   }
 }

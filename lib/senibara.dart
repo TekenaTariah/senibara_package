@@ -1,4 +1,5 @@
 // Data
+export 'src/data/data.dart';
 export 'src/data/app_data.dart';
 export 'src/data/theme_data.dart';
 export 'src/data/enums.dart';
@@ -11,15 +12,18 @@ export 'src/widgets/drawer_icon.dart';
 export 'src/widgets/footer_controls.dart';
 export 'src/widgets/about_us.dart';
 export 'src/widgets/license_page.dart';
-export 'src/widgets/coloured_Text.dart';
+export 'src/widgets/coloured_text.dart';
+export 'src/widgets/coloured_line.dart';
 
 //Utilities
 export 'src/utils/app_utils.dart';
+export 'src/utils/widget_utils.dart';
 export 'src/utils/payment_utils.dart';
 
 // Classes
 export 'src/classes/physical_quantity/mass.dart';
 export 'src/classes/physical_quantity/volume.dart';
+export 'src/classes/physical_quantity/physical_quantity.dart';
 
 // Imports
 import 'package:package_info_plus/package_info_plus.dart';

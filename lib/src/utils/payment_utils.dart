@@ -1,7 +1,4 @@
 // ignore_for_file: avoid_print,
-
-import 'package:flutter/material.dart';
-
 class SBPaymentUtils {
   static void receive() {
     print('payment received');

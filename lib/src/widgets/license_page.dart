@@ -49,9 +49,8 @@ class _SBLicensesPageState extends State<SBLicensesPage> {
   @override
   Widget build(BuildContext context) {
     // Styles
-    const appTitleTextStyle = TextStyle(fontSize: 25);
-    final appVersionTextStyle = TextStyle();
-    const legaleseTextStyle = TextStyle();
+    const appVersionTextStyle = TextStyle();
+    const legaleseTextStyle = TextStyle(fontSize: 12);
     const licenseTitleTextStyle = TextStyle(fontSize: 16);
     const licenseSubtitleTextStyle = TextStyle(
       fontSize: 14,
@@ -59,22 +58,21 @@ class _SBLicensesPageState extends State<SBLicensesPage> {
 
     // Build
     return Scaffold(
-      appBar: AppBar(title: Text('License Page'),),
+      appBar: AppBar(
+        title: const Text('License Page'),
+      ),
       body: Container(
-        padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+        padding: const EdgeInsets.all(20),
         width: double.infinity,
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const SizedBox(height: 30),
-              Text(appName, style: appTitleTextStyle),
-              const SizedBox(height: 10),
-              Image.asset(sbAppLogoPath, height: 50),
+              Image.asset(sbAppLogoPath, height: 60),
               const SizedBox(height: 5),
               Text(appVersion, style: appVersionTextStyle),
               Container(
-                  margin: const EdgeInsets.symmetric(vertical: 32.0),
+                  margin: const EdgeInsets.symmetric(vertical: 15.0),
                   child: const Text('Created by Senibara',
                       style: legaleseTextStyle)),
               Visibility(

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:senibara/senibara.dart';
 
 class SBColouredText extends StatelessWidget {
-  final String text;
+  final String? text;
   final TextStyle? style;
   final List<Color>? colours;
   const SBColouredText({Key? key, required this.text, this.style, this.colours})
@@ -17,7 +17,7 @@ class SBColouredText extends StatelessWidget {
           sbDesignOrange,
           sbDesignRed,
           sbDesignBlue,
-          sbBlue,
+          Colors.black
         ];
     return RichText(
       text: TextSpan(
@@ -25,7 +25,7 @@ class SBColouredText extends StatelessWidget {
               fontSize: style?.fontSize,
               fontWeight: style?.fontWeight ?? FontWeight.bold),
           children: text
-              .split('')
+              ?.split('')
               .map((e) => TextSpan(
                   text: e,
                   style: TextStyle(
