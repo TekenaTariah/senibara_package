@@ -14,6 +14,7 @@ export 'src/widgets/about_us.dart';
 export 'src/widgets/license_page.dart';
 export 'src/widgets/coloured_text.dart';
 export 'src/widgets/coloured_line.dart';
+export 'src/widgets/dialog_title.dart';
 
 //Utilities
 export 'src/utils/app_utils.dart';

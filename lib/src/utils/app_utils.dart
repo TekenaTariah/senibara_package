@@ -14,7 +14,7 @@ class SBUtils {
   static String toCamelCase(String? text) {
     if (text == null) return '';
 
-    text = text.toLowerCase();
+    text = text.trim().toLowerCase();
 
     var result = '';
     var chars = text.split('');
@@ -30,7 +30,8 @@ class SBUtils {
   }
 
   static String toTitleCase(String? text) {
-    if (text == null) return '';
+    if (text == null || text.isEmpty) return '';
+    text = text.trim();
     if (text.length == 1) return text.toUpperCase();
     return text.substring(0, 1).toUpperCase() + text.substring(1).toLowerCase();
   }

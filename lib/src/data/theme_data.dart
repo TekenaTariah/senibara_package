@@ -78,9 +78,7 @@ class SBThemeData {
       drawerTheme: const DrawerThemeData(width: 250),
       elevatedButtonTheme: null,
       errorColor: null,
-      floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        enableFeedback: true,
-      ),
+      floatingActionButtonTheme: null,
       focusColor: null,
       highlightColor: null,
       hintColor: null,
